@@ -401,7 +401,7 @@
     }
         
         // Mengirim data ucapan ke server
-        $.get(`/api/ucapan?nama=${nama}&ucapan=${ucapan}&kehadiran=${kehadiranText}`, (data) => {
+        $.get(`https://undangan-1.ismailmarzukyy.repl.co/api/ucapan?nama=${nama}&ucapan=${ucapan}&kehadiran=${kehadiranText}`, (data) => {
           console.log(data);
           $('#formnama').val('');
           $('#hadiran').val('0');
@@ -434,7 +434,7 @@ function getKehadiranIcon(kehadiran) {
 
 // Fungsi untuk memuat data ucapan dari server
 function loadData() {
-  $.get('/api/hasil', (data) => {
+  $.get('https://undangan-1.ismailmarzukyy.repl.co/api/hasil', (data) => {
     console.log(data);
     let html = '';
     data.ucapan.forEach((ucapan) => {
