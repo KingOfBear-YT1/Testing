@@ -1,0 +1,53 @@
+{
+  "ucapan": [
+    {
+      "id": "da581de6-906f-4675-ab42-d119aad28323",
+      "nama": "Uu",
+      "kehadiran": "Berhalangan",
+      "waktu": "08-06-2023 21:45:06 WIB",
+      "ucapan": "H"
+    },
+    {
+      "id": "1c51fcbf-f02c-4cf7-8125-7bde8829cf6f",
+      "nama": "Yy",
+      "kehadiran": "Hadir",
+      "waktu": "08-06-2023 21:42:29 WIB",
+      "ucapan": "Yu"
+    },
+    {
+      "id": "23bf6fce-7f9e-4b24-96e8-0c738af5b66f",
+      "nama": "U",
+      "kehadiran": "Hadir",
+      "waktu": "08-06-2023 21:41:06 WIB",
+      "ucapan": "J"
+    },
+    {
+      "id": "7def2106-efe6-4722-b67d-7e47896600a4",
+      "nama": "Zzz",
+      "kehadiran": "Hadir",
+      "waktu": "08-06-2023 21:35:17 WIB",
+      "ucapan": "Hh"
+    },
+    {
+      "id": "fdd82694-ca89-4f0e-9172-7cece171d0f0",
+      "nama": "Yy",
+      "kehadiran": "Berhalangan",
+      "waktu": "08-06-2023 21:35:06 WIB",
+      "ucapan": "Xxx"
+    },
+    {
+      "id": "acee681d-3219-40ef-81b2-5fb36cb1bf2c",
+      "nama": "Gg",
+      "kehadiran": "Hadir",
+      "waktu": "08-06-2023 21:29:27 WIB",
+      "ucapan": "Gh"
+    },
+    {
+      "id": "f196e5fc-eed0-4ed7-b6f9-5e9f7daf2042",
+      "nama": "G",
+      "kehadiran": "Berhalangan",
+      "waktu": "08-06-2023 21:28:57 WIB",
+      "ucapan": "Y"
+    }
+  ]
+}
