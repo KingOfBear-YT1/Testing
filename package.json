@@ -4,5 +4,23 @@
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
     "uuid": "^9.0.0"
-  }
+  },
+  "name": "undangan-1",
+  "description": "##### Demo: https://dewanakl.github.io/undangan/?to=Teman+teman+semua",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KingOfBear-YT1/undangan.git"
+  },
+  "author": "SaipulAnuar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KingOfBear-YT1/undangan/issues"
+  },
+  "homepage": "https://github.com/KingOfBear-YT1/undangan#readme"
 }
