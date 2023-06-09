@@ -63,6 +63,77 @@
         };
     </script>
 
+<script>
+     // Fungsi untuk mengirim data ucapan
+async function kirim() {
+  const nama = $('#formnama').val();
+  const ucapan = $('#formpesan').val();
+  const kehadiran = parseInt($('#hadiran').val());
+  let kehadiranText = '';
+
+  // Memetakan nilai angka ke nama
+  switch (kehadiran) {
+    case 0:
+      kehadiranText = 'Konfirmasi Kehadiran';
+      break;
+    case 1:
+      kehadiranText = 'Hadir';
+      break;
+    case 2:
+      kehadiranText = 'Berhalangan';
+      break;
+    default:
+      kehadiranText = 'Tidak diketahui';
+      break;
+  }
+
+  // Mengirim data ucapan ke server menggunakan fetch
+  try {
+    const response = await fetch(`https://undangan-1.ismailmarzukyy.repl.co/api/ucapan?nama=${nama}&ucapan=${ucapan}&kehadiran=${kehadiranText}`);
+    const data = await response.json();
+    console.log(data);
+    $('#formnama').val('');
+    $('#hadiran').val('0');
+    $('#formpesan').val('');
+    loadData();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Fungsi untuk memuat data ucapan dari server
+async function loadData() {
+  try {
+    const response = await fetch('https://undangan-1.ismailmarzukyy.repl.co/api/hasil');
+    const data = await response.json();
+    console.log(data);
+    let html = '';
+    data.ucapan.forEach((ucapan) => {
+      html += `
+        <div class="card-body bg-light shadow p-3 m-0 rounded-4" id="${ucapan.id}">
+          <div class="d-flex flex-wrap justify-content-between align-items-center">
+            <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
+              <strong class="me-1">${ucapan.nama} (${ucapan.kehadiran})</strong>${ucapan.kehadiran ? '<i class="fa-solid fa-circle-check text-success"></i>' : '<i class="fa-solid fa-circle-xmark text-danger"></i>'}
+            </p>
+            <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${ucapan.waktu}</small>
+          </div>
+          <hr class="text-dark my-1">
+          <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${ucapan.ucapan}</p>
+        </div>`;
+    });
+    $('#daftarucapan').html(html);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Memuat data ucapan saat halaman dimuat
+$(document).ready(() => {
+  loadData();
+});
+
+    </script>
+    
 </head>
 
 <body data-email="user@example.com" data-password="12345678" data-url="https://undangan-api-gules.vercel.app">
@@ -376,76 +447,7 @@
   </div>
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-     // Fungsi untuk mengirim data ucapan
-async function kirim() {
-  const nama = $('#formnama').val();
-  const ucapan = $('#formpesan').val();
-  const kehadiran = parseInt($('#hadiran').val());
-  let kehadiranText = '';
-
-  // Memetakan nilai angka ke nama
-  switch (kehadiran) {
-    case 0:
-      kehadiranText = 'Konfirmasi Kehadiran';
-      break;
-    case 1:
-      kehadiranText = 'Hadir';
-      break;
-    case 2:
-      kehadiranText = 'Berhalangan';
-      break;
-    default:
-      kehadiranText = 'Tidak diketahui';
-      break;
-  }
-
-  // Mengirim data ucapan ke server menggunakan fetch
-  try {
-    const response = await fetch(`https://undangan-1.ismailmarzukyy.repl.co/api/ucapan?nama=${nama}&ucapan=${ucapan}&kehadiran=${kehadiranText}`);
-    const data = await response.json();
-    console.log(data);
-    $('#formnama').val('');
-    $('#hadiran').val('0');
-    $('#formpesan').val('');
-    loadData();
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Fungsi untuk memuat data ucapan dari server
-async function loadData() {
-  try {
-    const response = await fetch('https://undangan-1.ismailmarzukyy.repl.co/api/hasil');
-    const data = await response.json();
-    console.log(data);
-    let html = '';
-    data.ucapan.forEach((ucapan) => {
-      html += `
-        <div class="card-body bg-light shadow p-3 m-0 rounded-4" id="${ucapan.id}">
-          <div class="d-flex flex-wrap justify-content-between align-items-center">
-            <p class="text-dark text-truncate m-0 p-0" style="font-size: 0.95rem;">
-              <strong class="me-1">${ucapan.nama} (${ucapan.kehadiran})</strong>${ucapan.kehadiran ? '<i class="fa-solid fa-circle-check text-success"></i>' : '<i class="fa-solid fa-circle-xmark text-danger"></i>'}
-            </p>
-            <small class="text-dark m-0 p-0" style="font-size: 0.75rem;">${ucapan.waktu}</small>
-          </div>
-          <hr class="text-dark my-1">
-          <p class="text-dark mt-0 mb-1 mx-0 p-0" style="white-space: pre-line">${ucapan.ucapan}</p>
-        </div>`;
-    });
-    $('#daftarucapan').html(html);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Memuat data ucapan saat halaman dimuat
-$(document).ready(() => {
-  loadData();
-});
-
-    </script>
+    
 </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </section>
